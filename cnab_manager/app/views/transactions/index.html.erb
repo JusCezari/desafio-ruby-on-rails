@@ -1,2 +1,26 @@
 <h1>Transactions#index</h1>
-<p>Find me in app/views/transactions/index.html.erb</p>
+<% @grouped_transactions.each do |key, store| %>
+
+  <h3><%= store[:store_name] %> / <%= store[:owner_name] %></h3>
+
+  <table>
+    <tr>
+      <th>Tipo</th>
+      <th>Data</th>
+      <th>Valor</th>
+      <th>CPF</th>
+      <th>Cartão</th>
+    </tr>
+    <% store[:transactions].each do |transaction| %>
+      <tr>
+        <td><%= transaction.transaction_type %></td>
+        <td><%= transaction.date %></td>
+        <td><%= transaction.value %></td>
+        <td><%= transaction.cpf %></td>
+        <td><%= transaction.card_number %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<% end %>
+

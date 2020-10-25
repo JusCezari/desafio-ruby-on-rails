@@ -3,7 +3,8 @@
 # Transactions controller class
 class TransactionsController < ApplicationController
   def index
-    render json: Transaction.all
+    all_transactions = Transaction.order(:date).all
+    @grouped_transactions = group_transactions_by_store_name(all_transactions)
   end
 
   def add; end
@@ -30,5 +31,24 @@ class TransactionsController < ApplicationController
       saved_transactions << Transaction.create(record.hash_for_transaction)
     end
     saved_transactions
+  end
+
+  def group_transactions_by_store_name(transactions)
+    stores = {}
+    transactions.each do |transaction|
+      if stores[transaction.store_name].blank?
+        stores[transaction.store_name] = base_hash_grouped_transactions(transaction.store_name, transaction.owner_name)
+      end
+      stores[transaction.store_name][:transactions] << transaction
+    end
+    stores
+  end
+
+  def base_hash_grouped_transactions(store_name, owner_name)
+    {
+      store_name: store_name,
+      owner_name: owner_name,
+      transactions: []
+    }
   end
 end
