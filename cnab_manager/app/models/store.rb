@@ -11,6 +11,6 @@ class Store < ApplicationRecord
     transactions.each do |transaction|
       total += TransactionType.operation_value(transaction.transaction_type, transaction.value)
     end
-    total
+    total.round(2)
   end
 end
