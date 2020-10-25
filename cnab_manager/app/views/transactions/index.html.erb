@@ -13,14 +13,16 @@
     </tr>
     <% store[:transactions].each do |transaction| %>
       <tr>
-        <td><%= transaction.transaction_type %></td>
+        <td><%= TransactionType.desc(transaction.transaction_type) %></td>
         <td><%= transaction.date %></td>
-        <td><%= transaction.value %></td>
+        <td><%= TransactionType.operation_value(transaction.transaction_type, transaction.value) %></td>
         <td><%= transaction.cpf %></td>
         <td><%= transaction.card_number %></td>
       </tr>
     <% end %>
   </table>
+
+  <div>Total desta loja: <%= store[:total] %></div>
 
 <% end %>
 

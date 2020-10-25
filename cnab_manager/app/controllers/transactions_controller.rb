@@ -36,10 +36,12 @@ class TransactionsController < ApplicationController
   def group_transactions_by_store_name(transactions)
     stores = {}
     transactions.each do |transaction|
-      if stores[transaction.store_name].blank?
-        stores[transaction.store_name] = base_hash_grouped_transactions(transaction.store_name, transaction.owner_name)
+      store_name = transaction.store_name
+      if stores[store_name].blank?
+        stores[store_name] = base_hash_grouped_transactions(store_name, transaction.owner_name)
       end
-      stores[transaction.store_name][:transactions] << transaction
+      stores[store_name][:transactions] << transaction
+      stores[store_name][:total] += TransactionType.operation_value(transaction.transaction_type, transaction.value)
     end
     stores
   end
@@ -48,6 +50,7 @@ class TransactionsController < ApplicationController
     {
       store_name: store_name,
       owner_name: owner_name,
+      total: 0,
       transactions: []
     }
   end
