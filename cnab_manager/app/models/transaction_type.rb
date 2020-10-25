@@ -14,14 +14,15 @@ module TransactionType
     9 => 'Aluguel'
   }.freeze
 
-  NEGATIVE_TRANSACTION_TYPES = [2, 3, 9].freeze
+  POSITIVE_TYPES = [1, 4, 5, 6, 7, 8].freeze
+  NEGATIVE_TYPES = [2, 3, 9].freeze
 
   def self.desc(type)
     TYPES[type]
   end
 
   def self.operation_value(type, value)
-    return value * -1 if NEGATIVE_TRANSACTION_TYPES.include?(type)
+    return value * -1 if NEGATIVE_TYPES.include?(type)
 
     value
   end

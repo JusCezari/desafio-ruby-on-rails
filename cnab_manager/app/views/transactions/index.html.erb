@@ -1,7 +1,7 @@
 <h1>Transactions#index</h1>
-<% @grouped_transactions.each do |key, store| %>
+<% @stores.each do |store| %>
 
-  <h3><%= store[:store_name] %> / <%= store[:owner_name] %></h3>
+  <h3><%= store.name %> / <%= store.owner %></h3>
 
   <table>
     <tr>
@@ -11,7 +11,7 @@
       <th>CPF</th>
       <th>Cartão</th>
     </tr>
-    <% store[:transactions].each do |transaction| %>
+    <% store.transactions.each do |transaction| %>
       <tr>
         <td><%= TransactionType.desc(transaction.transaction_type) %></td>
         <td><%= transaction.date %></td>
@@ -22,7 +22,7 @@
     <% end %>
   </table>
 
-  <div>Total desta loja: <%= store[:total] %></div>
+  <div>Total desta loja: <%= store.total_in_transactions %></div>
 
 <% end %>
 
