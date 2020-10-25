@@ -4,3 +4,6 @@ AllCops:
     - 'vendor/**/*'
     - '.git/**/*'
     - 'bin/**/*'
+
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context']
