@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :transaction do
-    type { Faker::Number.between(from: 1, to: 9) }
+    transaction_type { Faker::Number.between(from: 1, to: 9) }
     date { Time.now }
     value { Faker::Number.decimal(l_digits: 2) }
     cpf { Faker::IDNumber.brazilian_citizen_number }

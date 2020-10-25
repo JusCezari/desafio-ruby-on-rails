@@ -8,8 +8,8 @@ RSpec.describe Transaction, type: :model do
       transaction = build(:transaction)
       expect(transaction.valid?).to be_truthy
     end
-    it 'should be invalid if there is no type' do
-      transaction = build(:transaction, type: nil)
+    it 'should be invalid if there is no transaction type' do
+      transaction = build(:transaction, transaction_type: nil)
       expect(transaction.valid?).to be_falsey
     end
     it 'should be invalid if there is no date' do

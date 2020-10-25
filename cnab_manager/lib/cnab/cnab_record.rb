@@ -9,7 +9,7 @@ module Cnab
       self.text = text
     end
 
-    def type
+    def transaction_type
       text[0]
     end
 
@@ -51,8 +51,8 @@ module Cnab
 
     def hash_for_transaction
       {
-        type: type.to_i,
-        datetime: parsed_time,
+        transaction_type: transaction_type.to_i,
+        date: parsed_time,
         value: normalized_value,
         cpf: cpf,
         card_number: card_number,

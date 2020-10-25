@@ -2,7 +2,7 @@
 
 # Model for Transactions
 class Transaction < ApplicationRecord
-  validates :type, presence: true
+  validates :transaction_type, presence: true
   validates :date, presence: true
   validates :value, presence: true
   validates :cpf, presence: true, length: { is: 11 }

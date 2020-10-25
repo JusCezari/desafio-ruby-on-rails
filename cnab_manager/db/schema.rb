@@ -12,12 +12,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_024_232_857) do
+ActiveRecord::Schema.define(version: 20_201_025_162_604) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
   create_table 'transactions', force: :cascade do |t|
-    t.integer 'type', limit: 2, null: false
+    t.integer 'transaction_type', limit: 2, null: false
     t.datetime 'date', null: false
     t.float 'value', null: false
     t.string 'cpf', limit: 11, null: false

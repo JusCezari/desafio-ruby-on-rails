@@ -35,8 +35,8 @@ RSpec.describe Cnab::CnabRecord do
     end
 
     it 'should get transaction type from the first character as integer' do
-      expect(@random_cnab.type).to eq(@random_cnab.text[0])
-      expect(@ex_cnab.type).to eq(@ex_type)
+      expect(@random_cnab.transaction_type).to eq(@random_cnab.text[0])
+      expect(@ex_cnab.transaction_type).to eq(@ex_type)
     end
 
     it 'should get date from characters between positions 1 and 8' do
@@ -89,8 +89,8 @@ RSpec.describe Cnab::CnabRecord do
     context 'when need to export data to generate another object' do
       it 'should return a hash to use to create a Transaction object' do
         expect(@random_cnab.hash_for_transaction).to eq({
-                                                          type: @random_cnab.type.to_i,
-                                                          datetime: @random_cnab.parsed_time,
+                                                          transaction_type: @random_cnab.transaction_type.to_i,
+                                                          date: @random_cnab.parsed_time,
                                                           value: @random_cnab.normalized_value,
                                                           cpf: @random_cnab.cpf,
                                                           card_number: @random_cnab.card_number,
@@ -98,8 +98,8 @@ RSpec.describe Cnab::CnabRecord do
                                                           store_name: @random_cnab.store_name.strip
                                                         })
         expect(@ex_cnab.hash_for_transaction).to eq({
-                                                      type: @ex_cnab.type.to_i,
-                                                      datetime: @ex_cnab.parsed_time,
+                                                      transaction_type: @ex_cnab.transaction_type.to_i,
+                                                      date: @ex_cnab.parsed_time,
                                                       value: @ex_cnab.normalized_value,
                                                       cpf: @ex_cnab.cpf,
                                                       card_number: @ex_cnab.card_number,
