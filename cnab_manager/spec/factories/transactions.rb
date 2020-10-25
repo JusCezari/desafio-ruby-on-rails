@@ -7,7 +7,6 @@ FactoryBot.define do
     value { Faker::Number.decimal(l_digits: 2) }
     cpf { Faker::IDNumber.brazilian_citizen_number }
     card_number { Faker::Business.credit_card_number }
-    owner_name { Faker::Company.name }
-    store_name { Faker::Name.name }
+    store
   end
 end

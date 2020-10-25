@@ -28,7 +28,10 @@ class TransactionsController < ApplicationController
     cnab_parser = Cnab::Parser.new
     records = cnab_parser.records_from_file(file)
     records.each do |record|
-      saved_transactions << Transaction.create(record.hash_for_transaction)
+      store = Store.find_or_create_by(name: record.store_name, owner: record.owner_name)
+      transaction_to_save = Transaction.new(record.hash_for_transaction)
+      transaction_to_save.store = store
+      saved_transactions << transaction_to_save.save
     end
     saved_transactions
   end
@@ -36,9 +39,9 @@ class TransactionsController < ApplicationController
   def group_transactions_by_store_name(transactions)
     stores = {}
     transactions.each do |transaction|
-      store_name = transaction.store_name
+      store_name = transaction.store.name
       if stores[store_name].blank?
-        stores[store_name] = base_hash_grouped_transactions(store_name, transaction.owner_name)
+        stores[store_name] = base_hash_grouped_transactions(store_name, transaction.store.owner)
       end
       stores[store_name][:transactions] << transaction
       stores[store_name][:total] += TransactionType.operation_value(transaction.transaction_type, transaction.value)

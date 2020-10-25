@@ -64,13 +64,13 @@ RSpec.describe Cnab::CnabRecord do
       expect(@ex_cnab.hour).to eq(@ex_hour)
     end
 
-    it 'should get owner name from characters between positions 48 and 61' do
-      expect(@random_cnab.owner_name).to eq(@random_cnab.text[48..61])
+    it 'should get owner name from characters between positions 48 and 61 and strip it' do
+      expect(@random_cnab.owner_name).to eq(@random_cnab.text[48..61].strip)
       expect(@ex_cnab.owner_name).to eq(@ex_owner)
     end
 
-    it 'should get store name from characters between positions 62 and 80' do
-      expect(@random_cnab.store_name).to eq(@random_cnab.text[62..80])
+    it 'should get store name from characters between positions 62 and 80 and strip it' do
+      expect(@random_cnab.store_name).to eq(@random_cnab.text[62..80].strip)
       expect(@ex_cnab.store_name).to eq(@ex_store)
     end
 
@@ -93,18 +93,14 @@ RSpec.describe Cnab::CnabRecord do
                                                           date: @random_cnab.parsed_time,
                                                           value: @random_cnab.normalized_value,
                                                           cpf: @random_cnab.cpf,
-                                                          card_number: @random_cnab.card_number,
-                                                          owner_name: @random_cnab.owner_name.strip,
-                                                          store_name: @random_cnab.store_name.strip
+                                                          card_number: @random_cnab.card_number
                                                         })
         expect(@ex_cnab.hash_for_transaction).to eq({
                                                       transaction_type: @ex_cnab.transaction_type.to_i,
                                                       date: @ex_cnab.parsed_time,
                                                       value: @ex_cnab.normalized_value,
                                                       cpf: @ex_cnab.cpf,
-                                                      card_number: @ex_cnab.card_number,
-                                                      owner_name: @ex_cnab.owner_name.strip,
-                                                      store_name: @ex_cnab.store_name.strip
+                                                      card_number: @ex_cnab.card_number
                                                     })
       end
     end

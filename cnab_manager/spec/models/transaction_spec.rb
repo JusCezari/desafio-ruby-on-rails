@@ -3,6 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe Transaction, type: :model do
+  context 'when checking relations' do
+    it { should belong_to(:store) }
+  end
+
   context 'when checking empty fields' do
     it 'should be valid if all the fields are present' do
       transaction = build(:transaction)
@@ -28,12 +32,8 @@ RSpec.describe Transaction, type: :model do
       transaction = build(:transaction, card_number: nil)
       expect(transaction.valid?).to be_falsey
     end
-    it 'should be invalid if there is no owner_name' do
-      transaction = build(:transaction, owner_name: nil)
-      expect(transaction.valid?).to be_falsey
-    end
-    it 'should be invalid if there is no store_name' do
-      transaction = build(:transaction, store_name: nil)
+    it 'should be invalid if there is no store' do
+      transaction = build(:transaction, store: nil)
       expect(transaction.valid?).to be_falsey
     end
   end

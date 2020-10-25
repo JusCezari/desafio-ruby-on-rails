@@ -34,11 +34,11 @@ module Cnab
     end
 
     def owner_name
-      text[48..61]
+      text[48..61].strip
     end
 
     def store_name
-      text[62..80]
+      text[62..80].strip
     end
 
     def parsed_time
@@ -55,9 +55,7 @@ module Cnab
         date: parsed_time,
         value: normalized_value,
         cpf: cpf,
-        card_number: card_number,
-        owner_name: owner_name.strip,
-        store_name: store_name.strip
+        card_number: card_number
       }
     end
   end
