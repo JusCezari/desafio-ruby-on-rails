@@ -20,7 +20,7 @@ RSpec.describe TransactionsController, type: :controller do
   describe 'POST /upload' do
     it 'should return HTTP success code' do
       post :upload
-      expect(response).to have_http_status(:success)
+      expect(response).to redirect_to transactions_url
     end
   end
 end
