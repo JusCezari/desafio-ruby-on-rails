@@ -27,7 +27,7 @@ RSpec.describe TransactionsController, type: :controller do
       
       let(:number_of_records_in_mocked_file) { 21 }
       let(:fixture_file_path) { Rails.root.join('spec', 'fixtures', 'files', 'CNAB.txt') }
-      let(:mocked_file) { Rack::Test::UploadedFile.new(fixture_file_path, 'text/plain', false) }
+      let(:mocked_file) { Rack::Test::UploadedFile.new(fixture_file_path, 'text/plain', true) }
 
       before :example do
         Transaction.destroy_all
