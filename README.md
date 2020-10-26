@@ -1,3 +1,7 @@
+# Importante
+
+Este repositório foi feito para o desafio de programação da [bycoders](https://www.bycoders.com.br). Abaixo você pode encontrar o conteúdo original deste README contendo a descrição do desafio. Para conferir a resolução do mesmo acesse o diretório [cnab_manager](https://github.com/JusCezari/desafio-ruby-on-rails/tree/master/cnab_manager) que terá um arquivo README com todas as considerações e instruções para rodar o projeto.
+
 # Desafio programação - para vaga desenvolvedor Ruby on Rails
 
 Por favor leiam este documento do começo ao fim, com muita atenção.
