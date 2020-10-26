@@ -97,11 +97,11 @@ Este comando irá subir um container novo da aplicação, porém conectado ao me
 
 Após esse processo a aplicação pode ser acessada na sua máquina pela URL [http:localhost:3000](http:localhost:3000).
 
-## Testes
+# Testes
 
 Para rodar os testes da aplicação recomenda-se executar localmente ou no ambiente com Docker Compose.
 
-### Rodando os testes localmente
+## Rodando os testes localmente
 
 Para rodar os testes localmente execute o comando do ``rspec`` na raiz do projeto:
 
@@ -109,7 +109,7 @@ Para rodar os testes localmente execute o comando do ``rspec`` na raiz do projet
 
 Este comando irá rodar todos os testes da pasta ``spec``, a qual contém todos os testes da aplicação. O arquivo de coverage da aplicação pode ser encontrado na pasta ``coverage``, dentro da aplicação, que será gerada após rodar os testes.
 
-### Rodando os testes com o Docker Compose
+## Rodando os testes com o Docker Compose
 
 Para rodar os testes no Docker Compose siga primeiramente os passos descritos na [seção de configuração](#docker_compose) do Docker Compose. Com a aplicação rodando execute o seguinte comando para rodar os testes pelo Docker Compose:
 
@@ -117,7 +117,7 @@ Para rodar os testes no Docker Compose siga primeiramente os passos descritos na
 
 Este comando irá rodar todos os testes da pasta ``spec`` usando os containeres do Docker Compose. O arquivo de coverage da aplicação pode ser encontrado na pasta ``coverage`` dentro do container que roda a aplicação.
 
-## Documentação da API
+# Documentação da API
 
 O projeto conta com uma API simples para retornar os dados das transações. Foi desenvolvido uma documentação para esta API utilizando a [Open API Specification](http://spec.openapis.org/oas/v3.0.3). Esta documentação foi escrita usando a ferramenta [Swagger Editor](https://editor.swagger.io) e pode ser encontrada dentro da pasta ``docs`` da aplicação. Dentro desta pasta encontramos 3 arquivos:
 
@@ -125,7 +125,7 @@ O projeto conta com uma API simples para retornar os dados das transações. Foi
 * **cnab_manager_api_doc.json** - Arquivo JSON exportado diretamento do [Swagger Editor](https://editor.swagger.io). Este arquivo foi usado para gerar o PDF da documentação.
 * **cnab_manager_api_doc.pdf** - Arquivo em PDF da documentação para simplificar o acesso caso não deseje abrir a especificação em outros formatos.
 
-## Considerações
+# Considerações
 
 * A tela de transações carrega todos os dados de todas as lojas e agrupa visualmente. Isso em uma base com muitos registros pode exigir uma reorganização para não carregar todos os dados de uma só vez.
 
