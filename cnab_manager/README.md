@@ -1,6 +1,6 @@
 # CNAB Manager
 
-Este projeto foi feito para o desafio de programação da [bycoders](https://www.bycoders.com.br). Se quiser saber os requisitos exigidos para esta aplicação acesse o arquivo [README](https://github.com/JusCezari/desafio-ruby-on-rails/blob/master/cnab_manager/README.md) com a descrição do desafio.
+Este projeto foi feito para o desafio de programação da [bycoders](https://www.bycoders.com.br). Se quiser saber os requisitos exigidos para esta aplicação acesse o arquivo [README](https://github.com/JusCezari/desafio-ruby-on-rails/blob/master/README.md) com a descrição do desafio.
 
 # <a name="versions"></a>Versões utilizadas
 
@@ -38,11 +38,13 @@ Instale as dependências necessárias para o projeto rodar corretamente:
 É importante ter o Postgres instalado na máquina local com um usuário capaz de criar bancos de dados. Para configurar o acesso ao banco da aplicação será necessário ter duas variáveis de ambiente:
 
 ``CNAB_MANAGER_DATABASE_USERNAME # Usuário do banco de dados``
+
 ``CNAB_MANAGER_DATABASE_PASSWORD # Senha do usuário para o banco de dados``
 
 Se tiver dúvidas de como setar variáveis de ambiente em seu sistema consulte a internet. Caso estiver em um sistema Unix você pode setar temporariamente utilizando os comandos abaixo:
 
 ``export CNAB_MANAGER_DATABASE_USERNAME=your_database_user``
+
 ``export CNAB_MANAGER_DATABASE_PASSWORD=your_database_password``
 
 Após configurar as variáveis de ambiente corretamente crie o banco de dados usado pela aplicação usando o comando abaixo:
@@ -70,7 +72,9 @@ Para utilizar uma imagem individual do Docker primeiramente faça um build da im
 Esse comando criará uma imagem pronta para ser iniciada para rodar a aplicação. Importante notar que será necessário passar as variáveis referentes a configuração do banco de dados, serão necessárias 3 variáveis de ambiente:
 
 ``CNAB_MANAGER_DATABASE_HOST # Endereço para se conectar ao banco de dados``
+
 ``CNAB_MANAGER_DATABASE_USERNAME # Usuário do banco de dados``
+
 ``CNAB_MANAGER_DATABASE_PASSWORD # Senha do usuário para o banco de dados``
 
 Para passar essa configuração na execução do seu container utilize o comando abaixo:
