@@ -1,0 +1,21 @@
+version: '3'
+services:
+  rails:
+    build: .
+    ports:
+      - 3000:3000
+    links:
+      - db
+    environment:
+      POSTGRES_USER: cnab_manager
+      POSTGRES_PASSWORD: cnab_manager
+      CNAB_MANAGER_DATABASE_HOST: db
+      CNAB_MANAGER_DATABASE_USERNAME: cnab_manager
+      CNAB_MANAGER_DATABASE_PASSWORD: cnab_manager
+
+  db:
+    image: postgres
+    restart: always
+    environment:      
+      POSTGRES_USER: cnab_manager
+      POSTGRES_PASSWORD: cnab_manager

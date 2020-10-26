@@ -1,0 +1,9 @@
+.git*
+db/*.sqlite3
+db/*.sqlite3-journal
+log/*
+tmp/*
+Dockerfile
+docker-compose.yml
+README.rdoc
+node_modules
