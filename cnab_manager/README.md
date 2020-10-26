@@ -121,9 +121,9 @@ Este comando irá rodar todos os testes da pasta ``spec`` usando os containeres 
 
 O projeto conta com uma API simples para retornar os dados das transações. Foi desenvolvido uma documentação para esta API utilizando a [Open API Specification](http://spec.openapis.org/oas/v3.0.3). Esta documentação foi escrita usando a ferramenta [Swagger Editor](https://editor.swagger.io) e pode ser encontrada dentro da pasta ``docs`` da aplicação. Dentro desta pasta encontramos 3 arquivos:
 
-* **cnab_manager_api_doc.yml** - Arquivo contendo a especificação no formato YML. Para ser melhor editado e visualizado recomenda-se abrir usando o [Swagger Editor](https://editor.swagger.io).
-* **cnab_manager_api_doc.json** - Arquivo JSON exportado diretamento do [Swagger Editor](https://editor.swagger.io). Este arquivo foi usado para gerar o PDF da documentação.
-* **cnab_manager_api_doc.pdf** - Arquivo em PDF da documentação para simplificar o acesso caso não deseje abrir a especificação em outros formatos.
+* **[cnab_manager_api_doc.yml](https://github.com/JusCezari/desafio-ruby-on-rails/blob/master/cnab_manager/docs/cnab_manager_api_doc.yml)** - Arquivo contendo a especificação no formato YML. Para ser melhor editado e visualizado recomenda-se abrir usando o [Swagger Editor](https://editor.swagger.io).
+* **[cnab_manager_api_doc.json](https://github.com/JusCezari/desafio-ruby-on-rails/blob/master/cnab_manager/docs/cnab_manager_api_doc.json)** - Arquivo JSON exportado diretamento do [Swagger Editor](https://editor.swagger.io). Este arquivo foi usado para gerar o PDF da documentação.
+* **[cnab_manager_api_doc.pdf](https://github.com/JusCezari/desafio-ruby-on-rails/blob/master/cnab_manager/docs/cnab_manager_api_doc.pdf)** - Arquivo em PDF da documentação para simplificar o acesso caso não deseje abrir a especificação em outros formatos.
 
 # Considerações
 
