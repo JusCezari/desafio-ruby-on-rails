@@ -26,15 +26,15 @@
         <% store.transactions.each do |transaction| %>
           <tr>
             <td><%= TransactionType.desc(transaction.transaction_type) %></td>
-            <td><%= transaction.date %></td>
-            <td><%= TransactionType.operation_value(transaction.transaction_type, transaction.value) %></td>
+            <td><%= date_br transaction.date %></td>
+            <td><%= value_as_money TransactionType.operation_value(transaction.transaction_type, transaction.value) %></td>
             <td><%= transaction.cpf %></td>
             <td><%= transaction.card_number %></td>
           </tr>
         <% end %>
       </table>
 
-      <div class='store-total left'>Total desta loja: <%= store.total_in_transactions %></div>
+      <div class='store-total left'>Total desta loja: <%= value_as_money store.total_in_transactions %></div>
     <% end %>
 
   </div>
