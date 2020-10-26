@@ -3,10 +3,13 @@
 # Transactions controller class
 class TransactionsController < ApplicationController
   def index
+    @aux_title = 'Transações'
     @stores = Store.includes(:transactions).order(:name).all
   end
 
-  def add; end
+  def add
+    @aux_title = 'Importar arquivo CNAB'
+  end
 
   def upload
     if params.dig(:transactions, :transactions_file).present?

@@ -1,28 +1,43 @@
-<h1>Transactions#index</h1>
-<% @stores.each do |store| %>
+<div class='transactions-page container left'>
+  <h1>Transações</h1>
+  <div>Abaixo estão todas as transações presentes no sistema agrupadas por loja e exibindo o total gerado pelas transações:</div>
 
-  <h3><%= store.name %> / <%= store.owner %></h3>
+  <% if @stores.blank? %>
+    <div class='no-data'>Nenhuma loja cadastrada no sistema</div>
+  <% end %>
 
-  <table>
-    <tr>
-      <th>Tipo</th>
-      <th>Data</th>
-      <th>Valor</th>
-      <th>CPF</th>
-      <th>Cartão</th>
-    </tr>
-    <% store.transactions.each do |transaction| %>
-      <tr>
-        <td><%= TransactionType.desc(transaction.transaction_type) %></td>
-        <td><%= transaction.date %></td>
-        <td><%= TransactionType.operation_value(transaction.transaction_type, transaction.value) %></td>
-        <td><%= transaction.cpf %></td>
-        <td><%= transaction.card_number %></td>
-      </tr>
+  <% @stores.each do |store| %>
+
+  <div class='store-wrapper left'>
+
+    <h3 class='store-name'><%= store.name %> / <%= store.owner %></h3>
+
+    <% if store.transactions.blank? %>
+      <div class='no-data'>Nenhuma transação cadastrada</div>
+    <% else %>
+      <table class='transaction-table'>
+        <tr>
+          <th>Tipo</th>
+          <th>Data</th>
+          <th>Valor</th>
+          <th>CPF</th>
+          <th>Cartão</th>
+        </tr>
+        <% store.transactions.each do |transaction| %>
+          <tr>
+            <td><%= TransactionType.desc(transaction.transaction_type) %></td>
+            <td><%= transaction.date %></td>
+            <td><%= TransactionType.operation_value(transaction.transaction_type, transaction.value) %></td>
+            <td><%= transaction.cpf %></td>
+            <td><%= transaction.card_number %></td>
+          </tr>
+        <% end %>
+      </table>
+
+      <div class='store-total left'>Total desta loja: <%= store.total_in_transactions %></div>
     <% end %>
-  </table>
 
-  <div>Total desta loja: <%= store.total_in_transactions %></div>
+  </div>
 
-<% end %>
-
+  <% end %>
+</div>

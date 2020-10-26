@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CnabManager</title>
+    <title>CNAB Manager - <%= @aux_title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'favicon.ico' %>
   </head>
 
   <body>
+    <div class='navbar'>
+      <a href='<%= root_path %>'>
+        <%= image_tag 'bycoders_logo.png', :class => 'nav-logo left' %>
+      </a>
+      <div class='nav-buttons right'>
+        <a href='<%= transactions_path %>' class='ghost-button left'>Transações</a>
+        <a href='<%= transactions_add_path %>' class='ghost-button left'>Importar arquivo</a>
+      </div>
+    </div>
     <% flash.each do |type, message| %>
-      <div><%= type %> / <%= message %></div>
+      <div class='flash-message flash-<%= type %>'><%= message %></div>
     <% end %>
     <%= yield %>
   </body>

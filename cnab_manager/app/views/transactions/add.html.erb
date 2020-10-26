@@ -1,4 +1,9 @@
-<%= form_for :transactions, url: transactions_upload_path do |f| %>
-  <%= f.file_field :transactions_file %>
-  <%= f.submit 'Enviar' %>
-<% end %>
+<div class='transactions-page container left'>
+  <div class='upload-area'>
+    <div class='explanation'>Selecione o arquivo CNAB que deseja importar</div>
+    <%= form_for :transactions, url: transactions_upload_path do |f| %>
+      <%= f.file_field :transactions_file %>
+      <%= f.submit 'Importar' %>
+    <% end %>
+  </div>
+</div>

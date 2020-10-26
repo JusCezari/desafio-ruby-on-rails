@@ -1,3 +1,77 @@
 // Place all the styles related to the transaction controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.transactions-page {
+  padding: 20px;
+  .no-data {
+    float: left;
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+  }
+  .store-wrapper {
+    margin: 32px 0;
+    width: 100%;
+    position: relative;
+
+    .store-name {
+      border-left: 4px $green solid;
+      padding-left: 8px;
+      margin-bottom: 8px;
+    }
+
+    .transaction-table {
+      float: left;
+      width: 100%;
+      border-collapse: collapse;
+      
+      & td, & th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      & th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: $dark-grey;
+        color: white;
+      }
+
+      & tr:nth-child(even) {
+        background-color: #eee;
+      }
+      
+      & tr:hover {
+        background-color: #ddd;
+      }
+      
+    }
+
+    .store-total {
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    &:after {
+      display: block;
+      width: 100%;
+      background: $dark-grey;
+      content: '';
+      height: 1px;
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+    }
+  }
+  .upload-area {
+    float: left;
+    width: 100%;
+    text-align: center;
+
+    .explanation {
+      padding: 20px;
+    }
+  }
+}
