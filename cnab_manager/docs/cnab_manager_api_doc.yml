@@ -99,7 +99,7 @@ components:
           type: string
           description: Owner of the store where the transaction occurred
           example: Julio de Lara
-        store_number:
+        store_name:
           type: string
           description: Store name where the transaction occurred
           example: Awesome Shop
